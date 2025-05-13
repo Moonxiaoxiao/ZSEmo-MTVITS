@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emo-MTVITS 情感语音合成展示</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            font-size: 22px;
+        }
+        .description {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #eaf2f8;
+            border-radius: 5px;
+            text-align: justify;
+        }
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+            background-color: white; /* 确保表格背景为白色 */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+            color: #000; /* 黑色字体 */
+            background-color: white; /* 白色背景 */
+        }
+        th {
+            background-color: white; /* 表头也改为白色背景 */
+            color: #000; /* 黑色字体 */
+            font-weight: bold;
+            border-bottom: 2px solid #3498db; /* 添加底部边框增强可读性 */
+        }
+        tr:hover {
+            background-color: #f5f5f5; /* 悬停时轻微变色 */
+        }
+        audio {
+            width: 100%;
+            min-width: 200px;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }
+        .speaker-header {
+            background-color: white; /* 改为白色背景 */
+            color: #000; /* 黑色字体 */
+            font-weight: bold;
+        }
+        .emotion-cell {
+            font-weight: bold;
+            color: #000; /* 黑色字体 */
+        }
+        .model-name {
+            font-weight: bold;
+            color: #000; /* 黑色字体 */
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+        }
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ZSEmo-MTVITS: A Zero-Shot Cross-Lingual Emotional Speech Synthesis Model for Mandarin and Tibetan Based on VITS</h1>
+        
+        <div class="description">
+            <p>This page demonstrates the effectiveness of the ZSEmo-MTVITS model for emotional speech synthesis in Mandarin and Tibetan.</p>
+        
+        </div>
+
+        <h2>Tibetan Emotional Speech Synthesis</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Cross-Lingual Speaker</th>
+            <th>Emotional categories</th>
+            <th class="model-name">Emo-TFS2</th>
+            <th class="model-name">Emo-TVITS</th>
+            <th class="model-name">Emo-MTVITS</th>
+            <th class="model-name">ZSEmo-MTVITS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Speaker 1 -->
+        <tr class="speaker-header">
+            <td rowspan="7">E_T_speaker<audio controls><source src="wav/Reference/15.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            
+     <tr>
+            <td colspan="6" style="text-align:center; font-weight:bold;">TEXT：ཁ་བ་བུ་ཡུག་ཁྲོད་ལུས་པའི་དཀའ་ངལ་འཕྲད་པ།</td>
+        </tr>
+
+            <td class="emotion-cell">Angry</td>
+            <td><audio controls><source src="wav/Emo-TFS2/Ti/15_1_01.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/Emo-TVITS/Ti/15_1_01.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_T_Speaker/Ti/15_1_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_T_Speaker/Ti/15_1_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+ 
+        <tr>
+            <td class="emotion-cell">Happy</td>
+            <td><audio controls><source src="wav/Emo-TFS2/15_1_11.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/Emo-TVITS/Ti/15_1_11.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_T_Speaker/Ti/15_1_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_T_Speaker/Ti/15_1_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Neutral</td>
+            <td><audio controls><source src="wav/Emo-TFS2/15_1_21.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/Emo-TVITS/Ti/15_1_21.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_T_Speaker/Ti/15_1_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_T_Speaker/Ti/15_1_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Sad</td>
+            <td><audio controls><source src="wav/Emo-TFS2/15_1_31.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/Emo-TVITS/Ti/15_1_31.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_T_Speaker/Ti/15_1_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_T_Speaker/Ti/15_1_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Surprised</td>
+            <td><audio controls><source src="wav/Emo-TFS2/15_1_41.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/Emo-TVITS/Ti/15_1_41.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_T_Speaker/Ti/15_1_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_T_Speaker/Ti/15_1_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Cross-Lingual Speaker</th>
+            <th>Emotional categories</th>
+            <th class="model-name">Emo-MTVITS</th>
+            <th class="model-name">ZSEmo-MTVITS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Speaker 1 -->
+        <tr class="speaker-header">
+            <td rowspan="7">N_T_speaker<audio controls><source src="wav/Reference/10.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            
+     <tr>
+            <td colspan="6" style="text-align:center; font-weight:bold;">TEXT：ཁ་བ་བུ་ཡུག་ཁྲོད་ལུས་པའི་དཀའ་ངལ་འཕྲད་པ།</td>
+        </tr>
+
+            <td class="emotion-cell">Angry</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/N_T_Speaker/Ti/10_1_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/N_T_Speaker/Ti/10_1_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+ 
+        <tr>
+            <td class="emotion-cell">Happy</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/N_T_Speaker/Ti/10_1_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/N_T_Speaker/Ti/10_1_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Neutral</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/N_T_Speaker/Ti/10_1_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/N_T_Speaker/Ti/10_1_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Sad</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/N_T_Speaker/Ti/10_1_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/N_T_Speaker/Ti/10_1_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Surprised</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/N_T_Speaker/Ti/10_1_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/N_T_Speaker/Ti/10_1_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Cross-Lingual Speaker</th>
+            <th>Emotional categories</th>
+            <th class="model-name">Emo-MTVITS</th>
+            <th class="model-name">ZSEmo-MTVITS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Speaker 1 -->
+        <tr class="speaker-header">
+            <td rowspan="7">E_M_speaker<audio controls><source src="wav/Reference/0.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            
+     <tr>
+            <td colspan="6" style="text-align:center; font-weight:bold;">TEXT：ཁ་བ་བུ་ཡུག་ཁྲོད་ལུས་པའི་དཀའ་ངལ་འཕྲད་པ།</td>
+        </tr>
+
+            <td class="emotion-cell">Angry</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_M_Speaker/Ti/0_1_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_M_Speaker/Ti/0_1_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+ 
+        <tr>
+            <td class="emotion-cell">Happy</td>
+             <td><audio controls><source src="wav/Emo-MTVITS/E_M_Speaker/Ti/0_1_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_M_Speaker/Ti/0_1_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Neutral</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_M_Speaker/Ti/0_1_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_M_Speaker/Ti/0_1_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Sad</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_M_Speaker/Ti/0_1_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_M_Speaker/Ti/0_1_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Surprised</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_M_Speaker/Ti/0_1_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_M_Speaker/Ti/0_1_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h2>Mandarin Emotional Speech Synthesis</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Cross-Lingual Speaker</th>
+            <th>Emotional categories</th>
+            <th class="model-name">Emo-MTVITS</th>
+            <th class="model-name">ZSEmo-MTVITS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Speaker 1 -->
+        <tr class="speaker-header">
+            <td rowspan="7">E_T_speaker<audio controls><source src="wav/Reference/15.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            
+     <tr>
+            <td colspan="6" style="text-align:center; font-weight:bold;">TEXT：还要叫他起床怎么会不早起。</td>
+        </tr>
+
+            <td class="emotion-cell">Angry</td>
+
+            <td><audio controls><source src="wav/Emo-MTVITS/E_T_Speaker/Zh/15_0_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_T_Speaker/Zh/15_0_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+ 
+        <tr>
+            <td class="emotion-cell">Happy</td>
+     
+            <td><audio controls><source src="wav/Emo-MTVITS/E_T_Speaker/Zh/15_0_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_T_Speaker/Zh/15_0_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Neutral</td>
+
+            <td><audio controls><source src="wav/Emo-MTVITS/E_T_Speaker/Zh/15_0_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_T_Speaker/Zh/15_0_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Sad</td>
+
+            <td><audio controls><source src="wav/Emo-MTVITS/E_T_Speaker/Zh/15_0_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_T_Speaker/Zh/15_0_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Surprised</td>
+
+            <td><audio controls><source src="wav/Emo-MTVITS/E_T_Speaker/Zh/15_0_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_T_Speaker/Zh/15_0_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Cross-Lingual Speaker</th>
+            <th>Emotional categories</th>
+            <th class="model-name">Emo-MTVITS</th>
+            <th class="model-name">ZSEmo-MTVITS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Speaker 1 -->
+        <tr class="speaker-header">
+            <td rowspan="7">N_T_speaker<audio controls><source src="wav/Reference/10.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            
+     <tr>
+            <td colspan="6" style="text-align:center; font-weight:bold;">TEXT：还要叫他起床怎么会不早起。</td>
+        </tr>
+
+            <td class="emotion-cell">Angry</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/N_T_Speaker/Zh/10_0_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/N_T_Speaker/Zh/10_0_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+ 
+        <tr>
+            <td class="emotion-cell">Happy</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/N_T_Speaker/Zh/10_0_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/N_T_Speaker/Zh/10_0_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Neutral</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/N_T_Speaker/Zh/10_0_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/N_T_Speaker/Zh/10_0_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Sad</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/N_T_Speaker/Zh/10_0_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/N_T_Speaker/Zh/10_0_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Surprised</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/N_T_Speaker/Zh/10_0_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/N_T_Speaker/Zh/10_0_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Cross-Lingual Speaker</th>
+            <th>Emotional categories</th>
+            <th class="model-name">Emo-MTVITS</th>
+            <th class="model-name">ZSEmo-MTVITS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Speaker 1 -->
+        <tr class="speaker-header">
+            <td rowspan="7">E_M_speaker<audio controls><source src="wav/Reference/0.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            
+     <tr>
+            <td colspan="6" style="text-align:center; font-weight:bold;">TEXT：还要叫他起床怎么会不早起。</td>
+        </tr>
+
+            <td class="emotion-cell">Angry</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_M_Speaker/Zh/0_0_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_M_Speaker/Zh/0_0_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+ 
+        <tr>
+            <td class="emotion-cell">Happy</td>
+             <td><audio controls><source src="wav/Emo-MTVITS/E_M_Speaker/Zh/0_0_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_M_Speaker/Zh/0_0_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Neutral</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_M_Speaker/Zh/0_0_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_M_Speaker/Zh/0_0_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Sad</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_M_Speaker/Zh/0_0_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_M_Speaker/Zh/0_0_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Surprised</td>
+            <td><audio controls><source src="wav/Emo-MTVITS/E_M_Speaker/Zh/0_0_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/E_M_Speaker/Zh/0_0_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+        <h2>Out of dataset Tibetan speaker's Emotional Speech Synthesis</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Cross-Lingual Speaker</th>
+            <th>Emotional categories</th>
+            <th class="model-name">Tibetan</th>
+            <th class="model-name">Mandarin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Speaker 1 -->
+        <tr class="speaker-header">
+            <td rowspan="7">Out_set_T<audio controls><source src="wav/Reference/91.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            
+     <tr>
+            <td colspan="6" style="text-align:center; font-weight:bold;">ཁ་བ་བུ་ཡུག་ཁྲོད་ལུས་པའི་དཀའ་ངལ་འཕྲད་པ།   |还要叫他起床怎么会不早起。</td>
+
+        </tr>
+
+            <td class="emotion-cell">Angry</td>
+
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_T/Ti/91_1_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_T/Zh/91_0_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+ 
+        <tr>
+            <td class="emotion-cell">Happy</td>
+        <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_T/Ti/91_1_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_T/Zh/91_0_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Neutral</td>
+        <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_T/Ti/91_1_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_T/Zh/91_0_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Sad</td>
+        <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_T/Ti/91_1_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_T/Zh/91_0_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Surprised</td>
+
+          <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_T/Ti/91_1_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_T/Zh/91_0_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+        <h2>Out of dataset Mandarin speaker's Emotional Speech Synthesis</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Cross-Lingual Speaker</th>
+            <th>Emotional categories</th>
+            <th class="model-name">Tibetan</th>
+            <th class="model-name">Mandarin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Speaker 1 -->
+        <tr class="speaker-header">
+            <td rowspan="7">Out_set_M<audio controls><source src="wav/Reference/93.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            
+     <tr>
+            <td colspan="6" style="text-align:center; font-weight:bold;">ཁ་བ་བུ་ཡུག་ཁྲོད་ལུས་པའི་དཀའ་ངལ་འཕྲད་པ།   |还要叫他起床怎么会不早起。</td>
+
+        </tr>
+
+            <td class="emotion-cell">Angry</td>
+
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_M/Ti/93_1_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_M/Zh/93_0_01748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+ 
+        <tr>
+            <td class="emotion-cell">Happy</td>
+        <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_M/Ti/93_1_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_M/Zh/93_0_11748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Neutral</td>
+        <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_M/Ti/93_1_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_M/Zh/93_0_21748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Sad</td>
+        <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_M/Ti/93_1_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_M/Zh/93_0_31748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+        <tr>
+            <td class="emotion-cell">Surprised</td>
+
+          <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_M/Ti/93_1_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+            <td><audio controls><source src="wav/ZSEmo-MTVITS/Out_set_M/Zh/93_0_41748000.wav" type="audio/wav">您的浏览器不支持音频元素</audio></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <div class="loading" id="loading-message">
+            正在加载音频，请稍候...
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.getElementById('loading-message').style.display = 'none';
+            }, 2000);
+            
+            const audioElements = document.querySelectorAll('audio');
+            audioElements.forEach(audio => {
+                audio.addEventListener('play', function() {
+                    audioElements.forEach(otherAudio => {
+                        if (otherAudio !== audio && !otherAudio.paused) {
+                            otherAudio.pause();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
